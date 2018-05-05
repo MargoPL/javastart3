@@ -21,6 +21,7 @@ public class Solutions0 extends Exercises0 {
 
     @Override
     public long numPositive(List<Integer> numbers) {
+
         return numbers.stream().filter(x -> x > 0).count();
     }
 
@@ -45,7 +46,7 @@ public class Solutions0 extends Exercises0 {
     @Override
     public Map<String, Book> byTitle(List<Book> books) {
         return books.stream().collect(toMap(
-                book -> book.getTitle(),
+                Book::getTitle,
                 book -> book));
     }
 

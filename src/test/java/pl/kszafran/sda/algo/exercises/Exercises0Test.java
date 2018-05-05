@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static java.util.Collections.emptyList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -80,6 +81,7 @@ public class Exercises0Test {
                 exercises.byTitle(List.of(effectiveJava, cleanCode, cleanCoder, javaConcurrency)));
     }
 
+
     ////////////////////////////////////////////
     //                                        //
     // PONIŻEJ ZADANIA DODATKOWE DLA CHĘTNYCH //
@@ -102,5 +104,12 @@ public class Exercises0Test {
         assertEquals(finnishGrammar, exercises.findMostEditions(cleanCode, finnishGrammar, effectiveJava, cleanCoder).get());
         assertEquals(javaConcurrency, exercises.findMostEditions(javaConcurrency).get());
         assertFalse(exercises.findMostEditions().isPresent());
+    }
+
+    @Test
+    void test_hardTask() {
+        assertEquals("-\"Effective Java\" by Joshua Bloch (3 editions)", exercises.hardTask(List.of(effectiveJava)));
+        assertEquals("-\"Clean Code\" by Robert C. Martin (1 edition)", exercises.hardTask(List.of(cleanCode)));
+        assertEquals("-\"The Clean Coder\" by Robert C. Martin (1 edition)", exercises.hardTask(List.of(cleanCoder)));
     }
 }

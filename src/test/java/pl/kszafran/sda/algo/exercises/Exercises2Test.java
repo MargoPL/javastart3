@@ -21,16 +21,19 @@ public class Exercises2Test {
 
     @Test
     void testSelectionSort() {
+
         testSorting(exercises.createSelectionSort());
     }
 
     @Test
     void testInsertionSort() {
+
         testSorting(exercises.createInsertionSort());
     }
 
     @Test
     void testQuicksort() {
+
         testSorting(exercises.createQuicksort());
     }
 

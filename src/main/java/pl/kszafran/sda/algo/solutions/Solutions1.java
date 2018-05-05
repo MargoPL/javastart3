@@ -12,17 +12,28 @@ public class Solutions1 extends Exercises1 {
 
     @Override
     public int factorial(int n) {
+
         return n == 0 ? 1 : n * factorial(n - 1);
     }
 
     @Override
     public int sum(int[] numbers) {
+
         return sum(numbers, 0);
     }
 
     private int sum(int[] numbers, int offset) {
         return offset == numbers.length ? 0 : numbers[offset] + sum(numbers, offset + 1);
     }
+
+
+
+
+
+
+
+
+
 
     @Override
     public String reverse(String text) {
