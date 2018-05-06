@@ -22,7 +22,12 @@ public class Exercises3 {
      * Zwraca -1 jeśli element nie znajduje się w tablicy.
      */
     public int linearSearch(int[] array, int value) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        int i;
+        for (i = 0; i < array.length; i++) {
+            if (array[i] == value)
+                return i;
+        }
+        return -1;
     }
 
     /**
@@ -30,14 +35,38 @@ public class Exercises3 {
      * Zwraca -1 jeśli element nie znajduje się w tablicy.
      */
     public int binarySearch(int[] array, int value) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        int low = 0;
+        int high = array.length - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (array[mid] == value) {
+                return mid;
+            } else if (array[mid] < value) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;
     }
 
     /**
      * Wyszukuje element o wartości value w podanej POSORTOWANEJ liście i zwraca jego indeks.
      */
     public <T> Optional<Integer> indexOf(List<T> list, T value, Comparator<T> comparator) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        int low = 0;
+        int high = list.size() - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (comparator.compare(list.get(mid),value)==0) {
+                return Optional.ofNullable(mid);
+            } else if (comparator.compare(list.get(mid),value) < 0) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return Optional.empty();
     }
 
     ////////////////////////////////////////////
@@ -119,24 +148,24 @@ public class Exercises3 {
     }
 
 
-public static class IntRange {
+    public static class IntRange {
 
-    private final int start;
-    private final int end;
+        private final int start;
+        private final int end;
 
-    public IntRange(int start, int end) {
-        this.start = start;
-        this.end = end;
+        public IntRange(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        public int getStart() {
+            return start;
+        }
+
+        public int getEnd() {
+            return end;
+        }
     }
-
-    public int getStart() {
-        return start;
-    }
-
-    public int getEnd() {
-        return end;
-    }
-}
 
 }
 

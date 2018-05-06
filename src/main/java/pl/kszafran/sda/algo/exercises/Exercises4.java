@@ -12,6 +12,7 @@ public class Exercises4 {
      * Tworzy nową listę zawierającą podane elementy.
      */
     public <T> SdaList<T> createList(T... elements) {
+
         return new SdaLinkedList<>(elements);
     }
 
@@ -116,57 +117,106 @@ public class Exercises4 {
         private Node<T> head;
 
         public SdaLinkedList(T[] elements) {
-            throw new UnsupportedOperationException("Not implemented yet");
+            for (int i = elements.length - 1; i >= 0; i--) {
+                head = new Node<>(elements[i], head);
+            }
         }
 
         @Override
         public boolean isEmpty() {
-            throw new UnsupportedOperationException("Not implemented yet");
+
+            if (head == null) {
+                return true;
+            } else return false;
+
+
         }
 
         @Override
         public int size() {
-            throw new UnsupportedOperationException("Not implemented yet");
+
+            int counter = 0;
+            Node<T> iter = head;
+            while (iter != null) {
+                iter = iter.next;
+                counter++;
+            }
+            return counter;
         }
+
 
         @Override
         public T getFirst() {
-            throw new UnsupportedOperationException("Not implemented yet");
+            if (head == null) throw new java.util.NoSuchElementException();
+            T first = head.element;
+            return first;
         }
 
         @Override
         public T getLast() {
-            throw new UnsupportedOperationException("Not implemented yet");
+            if (isEmpty()) throw new java.util.NoSuchElementException();
+            Node<T> last = head;
+            while (last.next != null) {
+                last = last.next;
+            }
+            return last.element;
         }
 
         @Override
         public T get(int index) {
-            throw new UnsupportedOperationException("Not implemented yet");
+            if (index < 0) throw new IndexOutOfBoundsException(index);
+            if (isEmpty()) throw new IndexOutOfBoundsException(index);
+            Node<T> node = head;
+            for (int i = 0; i < index; i++) {
+                node = node.next;
+            }
+            if (node == null) throw new IndexOutOfBoundsException(index);
+            return node.element;
         }
 
         @Override
         public void clear() {
-            throw new UnsupportedOperationException("Not implemented yet");
+
+            head = null;
         }
 
         @Override
         public void addFirst(T element) {
-            throw new UnsupportedOperationException("Not implemented yet");
+            head = new Node<>(element, head);
         }
 
         @Override
         public void addLast(T element) {
-            throw new UnsupportedOperationException("Not implemented yet");
+            if (head == null) {
+                addFirst(element);
+            } else {
+                Node<T> last = head;
+                while (last.next != null) {
+                    last = last.next;
+                }
+                last.next = new Node<>(element, null);
+            }
         }
 
         @Override
         public void removeFirst() {
-            throw new UnsupportedOperationException("Not implemented yet");
+            if (head == null) throw new NoSuchElementException();
+            head = head.next;
         }
 
         @Override
         public void removeLast() {
-            throw new UnsupportedOperationException("Not implemented yet");
+            if (head == null) throw new java.util.NoSuchElementException();
+            if (head.next == null) {
+                removeFirst();
+                return;
+            }
+            Node<T> last = head;
+
+            while (last.next.next != null) {
+                last = last.next;
+            }
+            last.next = null;
         }
 
         ////////////////////////////////////////////
@@ -177,28 +227,32 @@ public class Exercises4 {
 
         @Override
         public Iterator<T> iterator() {
+
             throw new UnsupportedOperationException("Not implemented yet");
         }
 
         @Override
         public void setAt(int index, T element) {
+
             throw new UnsupportedOperationException("Not implemented yet");
         }
 
         @Override
         public void addAt(int index, T element) {
+
             throw new UnsupportedOperationException("Not implemented yet");
         }
 
         @Override
         public void removeAt(int index) {
+
             throw new UnsupportedOperationException("Not implemented yet");
         }
 
         private static class Node<T> {
 
-            private final T element;
-            private final Node<T> next;
+            private T element;
+            private Node<T> next;
 
             private Node(T element, Node<T> next) {
                 this.element = element;
