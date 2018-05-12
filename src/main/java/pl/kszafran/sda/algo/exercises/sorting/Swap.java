@@ -1,8 +1,8 @@
 package pl.kszafran.sda.algo.exercises.sorting;
 
-public abstract class Swap {
+class Swap {
 
-    void swap(int i, int j, int[] array) {
+    void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;

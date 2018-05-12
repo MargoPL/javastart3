@@ -1,30 +1,24 @@
 package pl.kszafran.sda.algo.exercises.sorting;
 
 public class SelectionSort extends Swap implements IntSortingAlgorithm {
-
-    @Override
-    void swap(int i, int j, int[] array) {
-        super.swap(i, j, array);
-    }
-
     @Override
     public void sort(int[] array) {
-
-//        repeat (numOfElements - 1) times
-//
-//        set the first unsorted element as the minimum
-//
-//        for each of the unsorted elements
-//
-//        if element < currentMinimum
-//
-//        set element as new minimum
-//
-//        swap minimum with first unsorted position
-
-        int numOfElements = array.length;
-        for (int min : array) {
+        for (int offset = 0; offset < array.length - 1; offset++) {
+            int min = offset;
+            for (int i = offset; i < array.length; i++) {
+                if (array[i] < array[min]) {
+                    min = i;
+                }
+            }
+            swap(array, offset, min);
         }
+    }
 
+    @Override
+    void swap(int[] array, int i, int j) {
+        super.swap(array, i, j);
     }
 }
+
+
+
