@@ -126,7 +126,15 @@ public class Exercises6 {
     public int countLeaves(SdaTree<?> tree) {
         if (!tree.getLeftChild().isPresent() && !tree.getRightChild().isPresent()) return 1;
 
-        
+        int counter = 0;
+
+        if (tree.getLeftChild().isPresent()) {
+            counter += countLeaves(tree.getLeftChild().get());
+        }
+        if (tree.getRightChild().isPresent()) {
+            counter += countLeaves(tree.getRightChild().get());
+        }
+        return counter;
 
     }
 
