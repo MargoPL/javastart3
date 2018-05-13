@@ -158,7 +158,11 @@ public class Exercises6 {
      * @throws IllegalArgumentException jeśli któraś z linijek zawiera nieprawidłową ilość wartości
      */
     public SdaTree<String> buildTree1(String input) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        char[] chars = input.toCharArray();
+        for (char c : chars){
+            SdaTree.of(chars[0],SdaTree.of(SdaTree.leaf(chars[1])),)
+        }
+        return
     }
 
     ////////////////////////////////////////////
