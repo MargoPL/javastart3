@@ -200,7 +200,21 @@ public class Exercises5 {
      * Podpowiedź: pytać o podpowiedzi :)
      */
     public <T> void reverseStack(Deque<T> stack) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (!stack.isEmpty()) {
+            T top = stack.pop();
+            reverseStack(stack);
+            pushToBottom(stack, top);
+        }
+    }
+
+    private <T> void pushToBottom(Deque<T> stack, T bottom) {
+        if (stack.isEmpty()) {
+            stack.push(bottom);
+        } else {
+            T top = stack.pop();
+            pushToBottom(stack, bottom);
+            stack.push(top);
+        }
     }
 
     /**
