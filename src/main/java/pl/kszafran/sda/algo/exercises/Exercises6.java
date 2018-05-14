@@ -158,11 +158,9 @@ public class Exercises6 {
      * @throws IllegalArgumentException jeśli któraś z linijek zawiera nieprawidłową ilość wartości
      */
     public SdaTree<String> buildTree1(String input) {
-        char[] chars = input.toCharArray();
-        for (char c : chars){
-            SdaTree.of(chars[0],SdaTree.of(SdaTree.leaf(chars[1])),)
-        }
-        return
+//        char[] chars = input.toCharArray();
+
+        return null;
     }
 
     ////////////////////////////////////////////
