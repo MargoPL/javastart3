@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.toSet;
-//import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.joining;
 
 
 /**
@@ -82,11 +82,10 @@ public class Exercises0 {
      * i zwraca (nie wypisuje) opisujący je, ładnie sformatowany String
      */
     public String hardTask(List<Book> books) {
-        return books.stream().map(book ->"-\""+ book.getTitle()+"\" by " + book.getAuthor() + " ("
-                + (book.getNumEditions()!=1? book.getNumEditions() + " editions)": book.getNumEditions() + " edition)") )
+        return books.stream().map(book -> "-\"" + book.getTitle() + "\" by " + book.getAuthor() + " ("
+                + (book.getNumEditions() != 1 ? book.getNumEditions() + " editions)" : book.getNumEditions() + " edition)"))
                 .collect(Collectors.joining("\n"));
     }
-
 
 
 //    public String hardTask(List<Book> books) {
@@ -104,11 +103,10 @@ public class Exercises0 {
 //    }
 
 
-
-        /**
-         * Zaimplementuj funkcję, która przyjmuje listę liczb (List<Long>)
-         * i zwraca NOWĄ listę z każdą liczbą pomnożoną przez 2.
-         */
+    /**
+     * Zaimplementuj funkcję, która przyjmuje listę liczb (List<Long>)
+     * i zwraca NOWĄ listę z każdą liczbą pomnożoną przez 2.
+     */
     public static List<Long> easyTask(List<Long> numbers) {
 
         return numbers.stream().map(e -> 2 * e).collect(Collectors.toList());
